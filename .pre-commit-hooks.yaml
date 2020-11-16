@@ -1,4 +1,4 @@
--   id: pre-commit-callgrpah.py
+-   id: pre-commit-callgraph
     name: Callgrpah Pre-commit Hook
     description: This hook builds call grpaph
     entry: pre-commit-callgraph.py
