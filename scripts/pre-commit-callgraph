@@ -6,7 +6,7 @@ import subprocess
 import os
 import sys
 import shutil
-from pre-commit-callgraph.utilities import get_colored_logger
+from precommitcallgraph.utilities import get_colored_logger
 from typing import List
 
 
