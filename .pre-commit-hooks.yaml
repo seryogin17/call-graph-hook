@@ -1,0 +1,5 @@
+-   id: pre-commit-callgrpah.py
+    name: Callgrpah Pre-commit Hook
+    description: This hook builds call grpaph
+    entry: pre-commit-callgraph.py
+    language: python3.8
