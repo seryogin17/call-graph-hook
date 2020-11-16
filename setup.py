@@ -7,6 +7,5 @@ setup(name='pre-commit-callgraph',
       include_package_data=True,
       scripts=['scripts/pre-commit-callgraph'],
       install_requires=[
-        'pandas',
-        'logging'],
+        'pandas'],
       zip_safe=False)
