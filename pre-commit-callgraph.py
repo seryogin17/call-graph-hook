@@ -27,7 +27,7 @@ pip install git+https://github.com/seryogin17/pyan.git""")
     
     # Check if path to callgrpah .config.json file is passed
     if not len(args):
-        logger.error("Missing path to callgraph .config.json file as an argument\n")
+        logger.error("Missing path to callgraph.config.json file as an argument\n")
         sys.exit(1)
 
     # Load the data from .config.json file
