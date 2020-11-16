@@ -6,12 +6,11 @@ import subprocess
 import os
 import sys
 import shutil
-from precommitcallgraph.utilities import get_colored_logger
-from typing import List
+from precommit.utilities import get_colored_logger
 
 
 ## ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ##
-def callgraph(args: List[str]) -> None:
+def callgraph(args):
     """
     Create a call graph of modules and save it in a user-defined format
     """
