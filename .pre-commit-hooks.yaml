@@ -1,5 +1,5 @@
--   id: pre-commit-callgraph
-    name: Callgraph Pre-commit Hook
+-   id: callgraph
+    name: Callgraph
     description: This hook builds call graph
-    entry: pre-commit-callgraph.py
+    entry: callgraph.py
     language: python
