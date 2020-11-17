@@ -22,14 +22,14 @@ pip install pre-commit
 3. Create `callgraph.config.json` file in your project directory and supply it with the relevant options as in the example given below:
 ```json
 {
-    "files": ['module_name.py', 'another_module_name.py'],
+    "files": ["module_name.py", "another_module_name.py"],
     "input_directory": "/path/to/progect/dir",
     "output_format": "png"
 }
 ```
 4. Create `.pre-commit-config.yaml` file in your project directory according to the rules described [here](https://pre-commit.com/#2-add-a-pre-commit-configuration) in detail and fill the `args` field with the name of `callgraph.config.json` file.
-repos:
 ```yaml
+repos:
 -   repo: https://github.com/seryogin17/callgraph-hook.git
     rev: v1.0
     hooks:
@@ -39,13 +39,13 @@ repos:
 5. Install all hook scripts listed in your `.yaml` file
 ```bash
 pre-commit install
-pre-commit installed at .git/hooks/pre-commit
+# expected output: pre-commit installed at .git/hooks/pre-commit
 ```
-6. Stage all the changes you are to commit
+6. Stage all the changes you would like to commit
 ```
 git stage module_name.py another_module_name.py
 ```
-7. Commit the changes and watch the output hook resulted
+7. Commit the changes and watch the output hook returned 
 ```
 git commit -m "commit message"
 Callgraph.........................................Passed
