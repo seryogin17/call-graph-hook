@@ -9,18 +9,18 @@ We endeavoured to combine those modifications in a homebrew version of Pyan, mai
 
 So to use this call graph hook via `pre-commit` framework run the folowing commands:
 1. Install `Pyan` module
-```
-$ pip install git+https://github.com/seryogin17/pyan.git
+```bash
+pip install git+https://github.com/seryogin17/pyan.git
 ```
 2. Install `pre-commit` framework via conda or pip
+```bash
+conda install -c conda-forge pre-commit
 ```
-$ conda install -c conda-forge pre-commit
-```
-```
-$ pip install pre-commit
+```bash
+pip install pre-commit
 ```
 3. Create `callgraph.config.json` file in your project directory and supply it with the relevant options as in the example given below:
-```
+```json
 {
     "files": ['module_name.py', 'another_module_name.py'],
     "input_directory": "/path/to/progect/dir",
@@ -29,7 +29,7 @@ $ pip install pre-commit
 ```
 4. Create `.pre-commit-config.yaml` file in your project directory according to the rules described [here](https://pre-commit.com/#2-add-a-pre-commit-configuration) in detail and fill the `args` field with the name of `callgraph.config.json` file.
 repos:
-```
+```yaml
 -   repo: https://github.com/seryogin17/callgraph-hook.git
     rev: v1.0
     hooks:
@@ -37,17 +37,17 @@ repos:
         args: [callgraph.config.json]
 ```
 5. Install all hook scripts listed in your `.yaml` file
-```
-$pre-commit install
+```bash
+pre-commit install
 pre-commit installed at .git/hooks/pre-commit
 ```
 6. Stage all the changes you are to commit
 ```
-$ git stage module_name.py another_module_name.py
+git stage module_name.py another_module_name.py
 ```
 7. Commit the changes and watch the output hook resulted
 ```
-$ git commit -m "commit message"
+git commit -m "commit message"
 Callgraph.........................................Passed
 [master ba9905b] commit message
 ```
