@@ -6,7 +6,7 @@ import subprocess
 import os
 import sys
 import shutil
-from utilities import get_colored_logger
+from callgraph.utilities import get_colored_logger
 
 
 ## ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ##
