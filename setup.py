@@ -1,7 +1,7 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
-setup(name='pre-commit-callgraph',
-      packages=['precommit'],
+setup(name='callgraph',
+      packages=['callgraph'],
       include_package_data=True,
-      scripts=['precommit/pre-commit-callgraph.py'],
+      scripts=['callgraph/callgraph.py'],
       zip_safe=False)
