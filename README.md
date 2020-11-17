@@ -52,4 +52,4 @@ Callgraph.........................................Passed
 [master ba9905b] commit message
 ```
 
-For more available git hooks, supported by `pre-commit` click [here](https://pre-commit.com/hooks.html).
+For more available git hooks supported by `pre-commit` click [here](https://pre-commit.com/hooks.html).
