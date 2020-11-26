@@ -1,5 +1,5 @@
 -   id: callgraph
-    name: Callgraph
-    description: This hook builds call graph
+    name: callgraph
+    description: This hook builds a function call graph
     entry: callgraph_wrapper.py
     language: python
