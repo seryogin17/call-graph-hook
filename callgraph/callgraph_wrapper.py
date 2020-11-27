@@ -56,6 +56,10 @@ pip install git+https://github.com/seryogin17/pyan.git""")
                 sys.exit(1)
 
     # Back up previous callgraphs before creating the new ones
+    for file_name in os.listdir(config['input_directory']):
+        if re.findall(r"(?<=callgraph\.)\w+$", file_name):
+            shutil.move(file_name, file_name+'.bak')
+            
     for file_name in glob(f"{config['input_directory']}/callgraph.*"):
         if file_name not in [f"{config['input_directory']}/callgraph.config.json"]:
             shutil.move(file_name, file_name+".bak")
