@@ -8,7 +8,7 @@ import sys
 import shutil
 from glob import glob
 
-from utilities import get_colored_logger
+from callgraph.utilities import get_colored_logger
 
 
 ## ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ##
