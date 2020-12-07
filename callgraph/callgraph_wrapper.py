@@ -24,18 +24,18 @@ def callgraph(args):
     if not shutil.which("pyan"):
         result = subprocess.run("pip install git+https://github.com/seryogin17/pyan.git")
         if not result.returncode:
-            logger.debug(f"Installed missing dependency: pyan")
+            logger.debug("Installed missing dependency: pyan")
         else:
-            logger.error(f"Failed to install missing dependency: pyan")
+            logger.error("Failed to install missing dependency: pyan")
             sys.exit(1)
 
     # Check if graphviz module is installed
     if not shutil.which("dot"):
         result = subprocess.run("conda install graphviz")
         if not result.returncode:
-            logger.debug(f"Installed missing dependency: graphviz")
+            logger.debug("Installed missing dependency: graphviz")
         else:
-            logger.error(f"Failed to install missing dependency: graphviz")
+            logger.error("Failed to install missing dependency: graphviz")
             sys.exit(1)
 
     # Check if path to callgrpah .config.json file is passed
@@ -74,7 +74,7 @@ def callgraph(args):
 
     # Generate a call graph with default output json format
     # Set flags to break command execution if at least one of its part fails
-    cmd = f"set -euo pipefail; pyan {" ".join(names)} --dot --colored --no-defines --grouped | dot -Tjson -Granksep=1.5 > {config["input_directory"]}/callgraph.json"
+    cmd = f"set -euo pipefail; pyan {" ".join(names)} --dot --colored --no-defines --grouped | dot -Tjson -Granksep=1.5 > {config['input_directory']}/callgraph.json"
 
     # Set bash as an executable and save the result of the command
     result = subprocess.run(cmd, shell=True, executable=shutil.which("bash"))
@@ -89,7 +89,7 @@ def callgraph(args):
     # Generate a call graph and save with prefered output format, if it exists
     fmt = config["output_format"].lower()
     if len(fmt):
-        cmd = f"set -euo pipefail; pyan {" ".join(names)} --dot --colored --no-defines --grouped | dot -T{fmt} -Granksep=1.5 > {config["input_directory"]}/callgraph.{fmt}"
+        cmd = f"set -euo pipefail; pyan {" ".join(names)} --dot --colored --no-defines --grouped | dot -T{fmt} -Granksep=1.5 > {config['input_directory']}/callgraph.{fmt}"
         result = subprocess.run(cmd, shell=True, executable=shutil.which("bash"))
         if not result.returncode:
             logger.debug(f"Generated a call graph with prefered {fmt} output format")
@@ -97,12 +97,12 @@ def callgraph(args):
             logger.error(f"Failed to generate a call graph with prefered {fmt} output format\n")
             sys.exit(1)
 
-    cmd = f"git add {config["input_directory"]}/callgraph.json"
+    cmd = f"git add {config['input_directory']}/callgraph.json"
     result = subprocess.run(cmd, shell=True)
     if not result.returncode:
-        logger.debug(f"Added {config["input_directory"]}/callgraph.json to the repo")
+        logger.debug(f"Added {config['input_directory']}/callgraph.json to the repo")
     else:
-        logger.error(f"Failed to add {config["input_directory"]}/callgraph.json to the repo")
+        logger.error(f"Failed to add {config['input_directory']}/callgraph.json to the repo")
 
 ## ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ##
 if __name__ == "__main__":
