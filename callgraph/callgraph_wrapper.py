@@ -74,7 +74,7 @@ def callgraph(args):
 
     # Generate a call graph with default output json format
     # Set flags to break command execution if at least one of its part fails
-    cmd = f"set -euo pipefail; pyan {" ".join(names)} --dot --colored --no-defines --grouped | dot -Tjson -Granksep=1.5 > {config['input_directory']}/callgraph.json"
+    cmd = f"set -euo pipefail; pyan {' '.join(names)} --dot --colored --no-defines --grouped | dot -Tjson -Granksep=1.5 > {config['input_directory']}/callgraph.json"
 
     # Set bash as an executable and save the result of the command
     result = subprocess.run(cmd, shell=True, executable=shutil.which("bash"))
@@ -89,7 +89,7 @@ def callgraph(args):
     # Generate a call graph and save with prefered output format, if it exists
     fmt = config["output_format"].lower()
     if len(fmt):
-        cmd = f"set -euo pipefail; pyan {" ".join(names)} --dot --colored --no-defines --grouped | dot -T{fmt} -Granksep=1.5 > {config['input_directory']}/callgraph.{fmt}"
+        cmd = f"set -euo pipefail; pyan {' '.join(names)} --dot --colored --no-defines --grouped | dot -T{fmt} -Granksep=1.5 > {config['input_directory']}/callgraph.{fmt}"
         result = subprocess.run(cmd, shell=True, executable=shutil.which("bash"))
         if not result.returncode:
             logger.debug(f"Generated a call graph with prefered {fmt} output format")
