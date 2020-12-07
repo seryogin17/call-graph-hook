@@ -31,12 +31,14 @@ def callgraph(args):
 
     # Check if graphviz module is installed
     if not shutil.which("dot"):
-        result = subprocess.run("conda install graphviz", shell=True)
-        if not result.returncode:
-            logger.debug("Installed missing dependency: graphviz")
-        else:
-            logger.error("Failed to install missing dependency: graphviz")
-            sys.exit(1)
+        logger.error("missing dependency: graphviz")
+        sys.exit(1)
+        # result = subprocess.run("conda install graphviz", shell=True)
+        # if not result.returncode:
+        #     logger.debug("Installed missing dependency: graphviz")
+        # else:
+        #     logger.error("Failed to install missing dependency: graphviz")
+        #     sys.exit(1)
 
     # Check if path to callgrpah .config.json file is passed
     if not len(args):
