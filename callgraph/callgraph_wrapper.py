@@ -30,9 +30,9 @@ def callgraph(args):
             sys.exit(1)
 
     # Check if graphviz module is installed
-    if not shutil.which("dot"):
-        logger.error("missing dependency: graphviz")
-        sys.exit(1)
+    # if not shutil.which("dot"):
+    #     logger.error("missing dependency: graphviz")
+    #     sys.exit(1)
         # result = subprocess.run("conda install graphviz", shell=True)
         # if not result.returncode:
         #     logger.debug("Installed missing dependency: graphviz")
