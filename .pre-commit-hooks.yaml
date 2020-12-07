@@ -2,4 +2,4 @@
     name: callgraph
     description: This hook builds a function call graph
     entry: callgraph_wrapper.py
-    language: python
+    language: [python, conda]
