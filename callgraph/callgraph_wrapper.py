@@ -18,11 +18,11 @@ def callgraph(args):
     Create a call graph of modules and save it in a user-defined format
     """
 
-    logger = get_colored_logger("pre-commit-callgraph.py", log_dir="./logs")
+    logger = get_colored_logger("callgraph-wrapper.py", log_dir="./logs")
 
     # Check if pyan module is installed
     if not shutil.which("pyan"):
-        result = subprocess.run("pip install git+https://github.com/seryogin17/pyan.git")
+        result = subprocess.run("pip install git+https://github.com/seryogin17/pyan.git", shell=True)
         if not result.returncode:
             logger.debug("Installed missing dependency: pyan")
         else:
@@ -31,7 +31,7 @@ def callgraph(args):
 
     # Check if graphviz module is installed
     if not shutil.which("dot"):
-        result = subprocess.run("conda install graphviz")
+        result = subprocess.run("conda install graphviz", shell=True)
         if not result.returncode:
             logger.debug("Installed missing dependency: graphviz")
         else:
