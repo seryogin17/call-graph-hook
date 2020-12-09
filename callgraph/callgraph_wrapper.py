@@ -7,7 +7,6 @@ import os
 import re
 import sys
 import shutil
-from glob import glob
 
 from callgraph.utilities import get_colored_logger
 
@@ -97,12 +96,13 @@ def callgraph(args):
             logger.error(f"Failed to generate a call graph with prefered {fmt} output format\n")
             sys.exit(1)
 
-    cmd = f"git add {config['input_directory']}/callgraph.json"
-    result = subprocess.run(cmd, shell=True)
-    if not result.returncode:
-        logger.debug(f"Added {config['input_directory']}/callgraph.json to the repo")
-    else:
-        logger.error(f"Failed to add {config['input_directory']}/callgraph.json to the repo")
+    # Uncomment in case of necessity to add a callgraph file to commit 
+    # cmd = f"git add {config['input_directory']}/callgraph.json"
+    # result = subprocess.run(cmd, shell=True)
+    # if not result.returncode:
+    #     logger.debug(f"Added {config['input_directory']}/callgraph.json to the repo")
+    # else:
+    #     logger.error(f"Failed to add {config['input_directory']}/callgraph.json to the repo")
 
 ## ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ==== ##
 if __name__ == "__main__":
