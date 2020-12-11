@@ -26,7 +26,7 @@ def callgraph(args):
     # Check cuurent git branch, exit if not appropriate
     result = subprocess.run("git rev-parse --abbrev-ref HEAD", shell=True, text=True)
     if result.stdout not in config["branches"]:
-        logger.debug(f"Current branch: {result.stdout}; expecting: {", ".join(config['branches'])}. Bailing out.")
+        logger.debug(f"Current branch: {result.stdout}; expecting: {', '.join(config['branches'])}. Bailing out.")
         sys.exit(0)
 
     logger = get_colored_logger("callgraph-wrapper.py", log_dir="./logs")
