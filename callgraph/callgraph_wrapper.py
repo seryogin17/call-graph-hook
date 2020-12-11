@@ -17,6 +17,11 @@ def callgraph(args):
     Create a call graph of modules and save it in a user-defined format
     """
 
+    # Check cuurent git branch, exit if not development
+    result = subprocess.run("git rev-parse --abbrev-ref HEAD", shell=True, text=True)
+    if result.stdout != "development":
+        sys.exit(0)
+
     logger = get_colored_logger("callgraph-wrapper.py", log_dir="./logs")
 
     # Check if pyan module is installed
