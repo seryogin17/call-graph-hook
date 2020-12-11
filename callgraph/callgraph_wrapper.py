@@ -17,6 +17,8 @@ def callgraph(args):
     Create a call graph of modules and save it in a user-defined format
     """
 
+    logger = get_colored_logger("callgraph-wrapper.py", log_dir="./logs")
+
     # Load the data from .config.json file
     path_config = args[0]
     with open(path_config, "r") as json_file:
@@ -24,12 +26,10 @@ def callgraph(args):
         logger.debug(f"Configuration file is loaded successfully: {path_config}")
 
     # Check cuurent git branch, exit if not appropriate
-    result = subprocess.run("git rev-parse --abbrev-ref HEAD", shell=True, text=True)
+    result = subprocess.run("git rev-parse --abbrev-ref HEAD", shell=True, text=True, capture_output=True)
     if result.stdout not in config["branches"]:
         logger.debug(f"Current branch: {result.stdout}; expecting: {', '.join(config['branches'])}. Bailing out.")
         sys.exit(0)
-
-    logger = get_colored_logger("callgraph-wrapper.py", log_dir="./logs")
 
     # Check if pyan module is installed
     if not shutil.which("pyan"):
