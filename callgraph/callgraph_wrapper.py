@@ -27,7 +27,7 @@ def callgraph(args):
 
     # Check cuurent git branch, exit if not appropriate
     result = subprocess.run("git rev-parse --abbrev-ref HEAD", shell=True, text=True, capture_output=True)
-    if result.stdout not in config["branches"]:
+    if result.stdout.strip() not in config["branches"]:
         logger.debug(f"Current branch: {result.stdout.strip()}; expecting: {', '.join(config['branches'])}. Bailing out.")
         sys.exit(0)
 
